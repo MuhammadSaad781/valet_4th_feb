@@ -32,6 +32,8 @@ export default function Incident() {
     { value: "Cliffside at Mountain Park" },
     { value: "Desert Commons" },
   ];
+  const city = [{ value: "El Paso" }];
+  const state = [{ value: "Texas" }];
 
   const loadfonts = async () => {
     await Font.loadAsync({
@@ -68,7 +70,7 @@ export default function Incident() {
 
           <SelectList
             setSelected={(val) => setSelected(val)}
-            data={data}
+            data={state}
             boxStyles={styles.input}
             placeholder="State"
             inputStyles={{
@@ -88,7 +90,7 @@ export default function Incident() {
 
           <SelectList
             setSelected={(val) => setSelected(val)}
-            data={data}
+            data={city}
             boxStyles={styles.input}
             placeholder="City"
             inputStyles={{

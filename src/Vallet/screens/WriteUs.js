@@ -41,7 +41,7 @@ export default function WriteUs() {
       <View style={styles.termsbox}>
         <TextInput
           placeholder="Type Here..."
-          secureTextEntry={true}
+          
           style={styles.input2}
           multiline={true}
         />

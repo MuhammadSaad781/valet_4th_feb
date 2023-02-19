@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MainScreen from "../Vallet/screens/MainScreen";
@@ -10,8 +10,20 @@ import { AntDesign } from "@expo/vector-icons";
 import Setting from "../Vallet/screens/Setting";
 import Notification from "../Vallet/screens/Notification";
 import IncidentReports from "../Vallet/screens/IncidentReports";
+import * as Font from "expo-font";
 const TabNavigation = () => {
   const Tab = createBottomTabNavigator();
+  const [loaded, setloaded] = useState(false);
+
+  const loadfonts = async () => {
+    await Font.loadAsync({
+      CircularStd: require("../../assets/CircularStd.ttf"),
+    });
+    setloaded(true);
+  };
+  useEffect(() => {
+    loadfonts();
+  }, []);
 
   return (
     <Tab.Navigator
@@ -34,6 +46,9 @@ const TabNavigation = () => {
         },
         tabBarActiveTintColor: "#246BFD",
         tabBarInactiveTintColor: "gray",
+        tabBarLabelStyle: {
+          fontFamily: "CircularStd",
+        },
       })}
     >
       <Tab.Screen
